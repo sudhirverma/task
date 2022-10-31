@@ -1,0 +1,57 @@
+<!DOCTYPE>
+
+<html>
+
+  <head>
+    <title>cytoscape-edgehandles.js snapping demo</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+
+    <!-- for testing with local version of cytoscape.js -->
+    <!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.js"></script>
+    <script src="cytoscape-edgehandles.js"></script>
+
+    <style>
+      body {
+        font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+        font-size: 14px;
+      }
+
+      #cy {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 999;
+      }
+
+      h1 {
+        opacity: 0.5;
+        font-size: 1em;
+        font-weight: bold;
+      }
+
+      #buttons {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 99999;
+        margin: 1em;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="cy"></div>
+    <script src="./code.js">
+      </script>
+
+  </body>
+
+</html>
