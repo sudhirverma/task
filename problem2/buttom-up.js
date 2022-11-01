@@ -51,6 +51,29 @@ class BinarySearchTree {
         }
     }
 
+    skipLeave(leafName) {
+        let level;
+        var data = [];
+        function traverse(node, depth = 0) {
+            for (let i=0; i<node.leaf.length; i++) {
+                if (node.leaf[i].value === leafName) {
+                    level = depth;  
+                }
+                if (data[depth]) {
+                    data[depth].push(node.leaf[i].value);
+                } else {
+                    data.push([node.leaf[i].value]);
+                }
+                traverse(node.leaf[i], depth+1);
+            }
+        }
+        traverse(this.root);
+        if (data[level]) {
+            data.splice(level, 1);
+        }
+        return data;
+    }
+
     DFSInOrder() {
         var data = [];
         function traverse(node, depth = 0) {
@@ -90,7 +113,9 @@ let input = {
 }
 
 var tree = new BinarySearchTree();
-const rootNode = tree.createTree(undefined, Object.keys(input)[0]);
-tree.iterateArray(rootNode, input['root']);
+// const rootNode = tree.createTree(undefined, Object.keys(input)[0]);
+tree.iterateObject(Object.keys(input)[0], input);
 const inOrder = tree.DFSInOrder();
+const skipLeaveLevel = tree.skipLeave("p1");
 console.log(inOrder);
+console.log(skipLeaveLevel);
