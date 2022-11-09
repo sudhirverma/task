@@ -92,43 +92,43 @@ class BinarySearchTree {
 }
 // [[1,2,3,4,5,6,'onlyChild'], ['p1Name', 'sp2', 'sp3', 'ln', 'rn'], ['rootName', 'p1', 'p2']]
 
-// let input = {
-//     'root': [
-//         'rootName',
-//         { 'p1': 
-//             [ 'p1Name',
-//                 {
-//                     'sp2': [1, 2],
-//                     'sp3': [3,4]
-//                 }
-//             ]
-//         },
-//         {
-//             'p2': {
-//                 'ln': [5,6],
-//                 'rn': 'onlyChild'
-//             }
-//         }
-//     ]
-// }
-
 let input = {
-    'root': {
-       'p2': {
-         'ln': [5,6],
-         'rn': 'onlyChild'
-       }, 
-       'p3': {
-           'ln2': 'leftChild',
-           'rn2': 'rightChild'
-         }
-       }
-    }
+    'root': [
+        'rootName',
+        { 'p1': 
+            [ 'p1Name',
+                {
+                    'sp2': [1, 2],
+                    'sp3': [3,4]
+                }
+            ]
+        },
+        {
+            'p2': {
+                'ln': [5,6],
+                'rn': 'onlyChild'
+            }
+        }
+    ]
+}
+
+// let input = {
+//     'root': {
+//        'p2': {
+//          'ln': [5,6],
+//          'rn': 'onlyChild'
+//        }, 
+//        'p3': {
+//            'ln2': 'leftChild',
+//            'rn2': 'rightChild'
+//          }
+//        }
+//     }
 
 var tree = new BinarySearchTree();
 // const rootNode = tree.createTree(undefined, Object.keys(input)[0]);
 tree.iterateObject(Object.keys(input)[0], input);
-const inOrder = tree.DFSInOrder();
-const skipLeaveLevel = tree.skipLeave("rn2");
+// const inOrder = tree.DFSInOrder();
+const skipLeaveLevel = tree.skipLeave("p1");
 // console.log(inOrder);
 console.log(skipLeaveLevel);
